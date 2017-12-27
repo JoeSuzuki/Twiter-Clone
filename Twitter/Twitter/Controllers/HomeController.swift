@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WordCell: UICollectionViewCell {
+class WordCell: UICollectionViewCell { // indivisual cell (the middle part + setup of the labels in each cell)
  
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ class WordCell: UICollectionViewCell {
     }
 }
 
-class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
+class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLayout { // this is the basic setup of the list of posts/ users
    
     let cellId = "cellId"
     let headerId = "headerId"
