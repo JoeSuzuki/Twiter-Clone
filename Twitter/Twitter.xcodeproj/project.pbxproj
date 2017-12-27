@@ -71,8 +71,8 @@
 		FF43A77E1FF326E100B0A0DF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FF43A77F1FF326E100B0A0DF /* HomeController.swift */,
 				FF43A7801FF326E100B0A0DF /* HomeDatasourceController.swift */,
+				FF43A77F1FF326E100B0A0DF /* HomeController.swift */,
 			);
 			name = Controllers;
 			path = Twitter/Controllers;
