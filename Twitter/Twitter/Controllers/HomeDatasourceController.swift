@@ -36,8 +36,16 @@ class HomeDatasourceController: DatasourceController {
         setupNavigationBarItems()
     
         Service.sharedInstance.fetchHomeFeed(completion: { (homeDatasource, err) in
-            if let _ = err {
+            if let err = err {
                 self.errorMessageLabel.isHidden = false
+                
+                if let  apiError = err as? APIError<Service.JSONError> {
+                    if apiError.response?.statusCode != 200 {
+                        self.errorMessageLabel.text = "Trouble connecting to servers. Please try again later..."
+                    }
+                }
+
+                
                 return
             }
             self.datasource = homeDatasource
