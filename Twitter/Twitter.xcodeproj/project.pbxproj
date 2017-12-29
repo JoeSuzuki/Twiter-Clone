@@ -94,7 +94,6 @@
 		FF43A77E1FF326E100B0A0DF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FF43A77F1FF326E100B0A0DF /* HomeController.swift */,
 				FF43A7801FF326E100B0A0DF /* HomeDatasourceController.swift */,
 				FF4EE86B1FF4AAE40062BF6F /* HomeDatasourceController+NavigationBar.swift */,
 			);
@@ -135,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				FFA5A3231FEF4EEB003B01C7 /* AppDelegate.swift */,
+				FF43A77F1FF326E100B0A0DF /* HomeController.swift */,
 				FFA5A32A1FEF4EEB003B01C7 /* Assets.xcassets */,
 				FFA5A32F1FEF4EEB003B01C7 /* Info.plist */,
 				FF43A7811FF326E100B0A0DF /* Views */,
