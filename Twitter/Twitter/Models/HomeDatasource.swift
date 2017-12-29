@@ -13,29 +13,15 @@ import SwiftyJSON
 class HomeDatasource: Datasource, JSONDecodable {
    
     let users: [User]
-    
-    required init(json: JSON) throws {
-        var users = [User]()
-        
-        let array = json["users"].array
-        for userJson in array! {
-            let name = userJson["name"].stringValue
-            let username = userJson["username"].stringValue
-            let bio = userJson["bio"].stringValue
-            
-            let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-            users.append(user)
-        }
-        
-        self.users = users
-    }
+    let tweets: [Tweet]
 
-    let tweets: [Tweet] = {
-        let joeUser = User(name: "Test", username: "@Test", bioText: "Test Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest TestTest Test Test TestTest TestTest Test Test TestTest TestTest Test Test Test", profileImage: #imageLiteral(resourceName: "IMG_3557"))
-        let tweet = Tweet(user: joeUser, message: "I wanna be richhhhhh Test Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest TestTest Test Test TestTest Test Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest TestTest Test Test TestTest ")
-        let tweet2 = Tweet(user: joeUser, message: "I wanna be richhhhhh Test Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest TestTest Test Test TestTest Test Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest Test Test TestTest TestTest Test Test TestTest ")
-        return [tweet, tweet2]
-    }()
+    required init(json: JSON) throws {
+        let usersJsonArray = json["users"].array
+        self.users = usersJsonArray!.map{User(json: $0)}
+        
+        let tweetsJsonArray = json["tweets"].array
+        self.tweets = tweetsJsonArray!.map{Tweet(json: $0)}
+    }
     
     override func footerClasses() -> [DatasourceCell.Type]? {
         return [UserFooter.self]
