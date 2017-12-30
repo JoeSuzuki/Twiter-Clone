@@ -57,7 +57,7 @@ class HomeDatasourceController: DatasourceController {
         return 0
     }
     
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize { // change text size for biotext and tweets
         if indexPath.section == 0 {
             guard let user = self.datasource?.item(indexPath) as? User else {return .zero}
             
